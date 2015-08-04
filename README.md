@@ -3,6 +3,7 @@ Here are my personal projects that I can share. Some are from school, and some a
 
 ## Data Structures
 Language: C++
+
 These are the projects that I completed for the data structures class at OIT.
 ### Assignments
 * 1 Dimension Array
@@ -36,10 +37,12 @@ These are the projects that I completed for the data structures class at OIT.
  
 ## NINJA
 Language: HTML, CSS
+
 This is where some of the code for my website is.
 
 ## OOP
 Language: C++
+
 These are some of the projects I completed in my Object Oriented Programming class at OIT.
 * BlackJack game (last project)
 * Book Class
