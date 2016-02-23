@@ -55,5 +55,8 @@
     <Text Include="morse.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="ToEncode.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
