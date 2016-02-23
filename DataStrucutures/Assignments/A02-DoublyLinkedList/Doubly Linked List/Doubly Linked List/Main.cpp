@@ -41,6 +41,7 @@ void main()
 	alist.PrintForwards();
 	alist.PrintBackwards();
 }
+
 void TestAppend(DoubleLinkedList<int> & alist)
 {
 	std::cout << "\n********** Append **********" << std::endl;
@@ -50,6 +51,7 @@ void TestAppend(DoubleLinkedList<int> & alist)
 	alist.Append(25);
 	alist.Append(35);
 }
+
 void TestFirstAndLast(const DoubleLinkedList<int> & alist)
 {
 	DoubleLinkedList<int> blist;
@@ -78,6 +80,7 @@ void TestFirstAndLast(const DoubleLinkedList<int> & alist)
 		std::cout << msg << std::endl;
 	}
 }
+
 void TestPrepend(DoubleLinkedList<int> & alist)
 {
 	DoubleLinkedList<int> blist;
@@ -104,6 +107,7 @@ void TestPrepend(DoubleLinkedList<int> & alist)
 	std::cout << blist.First() << std::endl;
 	std::cout << blist.Last() << std::endl;
 }
+
 void TestPurge(DoubleLinkedList<int> alist)
 {
 	std::cout << "\n********** Purge **********" << std::endl;
@@ -116,6 +120,7 @@ void TestPurge(DoubleLinkedList<int> alist)
 	std::cout << alist.getHead() << std::endl;
 	std::cout << alist.getTail() << std::endl;
 }
+
 void TestInsertBefore()
 {
 	DoubleLinkedList<int> clist;
@@ -160,6 +165,7 @@ void TestInsertBefore()
 		std::cout << msg << std::endl;
 	}
 }
+
 void TestInsertAfter()
 {
 	DoubleLinkedList<int> clist;
@@ -203,6 +209,7 @@ void TestInsertAfter()
 		std::cout << msg << std::endl;
 	}
 }
+
 void TestExtract()
 {
 	DoubleLinkedList<int> alist;
@@ -230,6 +237,7 @@ void TestExtract()
 	{
 		std::cout << msg << std::endl;
 	}
+
 	try
 	{
 		std::cout << alist.Last() << std::endl;
