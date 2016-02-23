@@ -1,0 +1,32 @@
+Native Array Results
+
+BruteBubble: 000:00:010
+FlagBubble: 000:00:011
+Selection: 000:00:005
+Insertion: 000:00:004
+Shell: 000:00:001
+Heap: 000:00:001
+MergeSort: 000:00:001
+Quick: 000:00:000
+
+Vector Results
+
+BruteBubble: 000:00:425
+FlagBubble: 000:00:421
+Selection: 000:00:194
+Insertion: 000:00:169
+Shell: 000:00:010
+Heap: 000:00:012
+MergeSort: 000:00:009
+Quick: 000:00:005
+
+My Array Results
+
+BruteBubble: 000:00:256
+FlagBubble: 000:00:202
+Selection: 000:00:097
+Insertion: 000:00:075
+Shell: 000:00:004
+Heap: 000:00:006
+MergeSort: 000:00:004
+Quick: 000:00:002

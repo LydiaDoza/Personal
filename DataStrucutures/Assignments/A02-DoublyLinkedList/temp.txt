@@ -1,0 +1,57 @@
+
+/**************************************************************
+*	Purpose: 	Default Ctor
+*
+*	Entry:		None
+*
+*	Exit:		All data members set to zero or nullptr
+****************************************************************/
+template <typename T>
+DoubleLinkedList<T>::DoubleLinkedList() : m_head(nullptr), m_tail(nullptr)
+{
+
+}
+
+/**************************************************************
+*	Purpose:	Copy Ctor
+*
+*	Entry:		data member to be copied
+*
+*	Exit:		this is equal to copy
+****************************************************************/
+template <typename T>
+DoubleLinkedList<T>::DoubleLinkedList(const DoubleLinkedList<T> & copy) : m_head(nullptr), m_tail(nullptr)
+{
+
+}
+
+/**************************************************************
+*	Purpose:	Dtor
+*
+*	Entry:		None
+*
+*	Exit:		Memory deallocated, members set back to zero
+*				or nullptr
+****************************************************************/
+template <typename T>
+DoubleLinkedList<T>::~DoubleLinkedList()
+{
+
+}
+
+/**************************************************************
+*	Purpose:	op equals
+*
+*	Entry:		DoubleLinkedList rhs
+*
+*	Exit:		this is equal to rhs
+****************************************************************/
+template <typename T>
+DoubleLinkedList<T>& DoubleLinkedList<T>::operator=(const DoubleLinkedList<T> & rhs)
+{
+	if (this != &rhs)
+	{
+	
+	}
+
+return *this;

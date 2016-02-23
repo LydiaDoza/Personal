@@ -1,0 +1,73 @@
+
+/**************************************************************
+*	Purpose: 	Default Ctor
+*
+*	Entry:		None
+*
+*	Exit:		All data members set to zero or nullptr
+****************************************************************/
+template <typename T>
+Array2D<T>::Array2D() : m_row(0), m_col(0), m_array()
+{
+
+}
+
+/**************************************************************
+*	Purpose: 	Two argument Ctor
+*
+*	Entry:		None
+*
+*	Exit:		All data members set to passed in values or 
+*				nullptr
+****************************************************************/
+template <typename T>
+Array2D<T>::Array2D(int row, int col /* = 0 */) : m_row(row), m_col(col)
+{
+	m_array = new Array<T>[row * col];
+}
+
+/**************************************************************
+*	Purpose:	Copy Ctor
+*
+*	Entry:		data member to be copied
+*
+*	Exit:		this is equal to copy
+****************************************************************/
+template <typename T>
+Array2D<T>::Array2D(const Array2D<T> & copy)
+{
+	*this = copy;
+}
+
+/**************************************************************
+*	Purpose:	Dtor
+*
+*	Entry:		None
+*
+*	Exit:		Memory deallocated, members set back to zero
+*				or nullptr
+****************************************************************/
+template <typename T>
+Array2D<T>::~Array2D()
+{
+
+}
+
+/**************************************************************
+*	Purpose:	op equals
+*
+*	Entry:		Array2D rhs
+*
+*	Exit:		this is equal to rhs
+****************************************************************/
+template <typename T>
+Array2D<T>& Array2D<T>::operator=(const Array2D<T> & rhs)
+{
+	if (this != &rhs)
+	{
+	
+	}
+
+return *this;
+
+}
