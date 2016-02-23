@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GammaConsoleClockObserver", "GammaConsoleClockObserver\GammaConsoleClockObserver.csproj", "{2AB4BFC9-D4F5-4AE2-A62B-560C25F06A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpConsoleClockObserver", "CSharpConsoleClockObserver\CSharpConsoleClockObserver.csproj", "{3ACCCD85-274B-4F62-944F-09276617C03D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AB4BFC9-D4F5-4AE2-A62B-560C25F06A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AB4BFC9-D4F5-4AE2-A62B-560C25F06A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AB4BFC9-D4F5-4AE2-A62B-560C25F06A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AB4BFC9-D4F5-4AE2-A62B-560C25F06A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ACCCD85-274B-4F62-944F-09276617C03D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACCCD85-274B-4F62-944F-09276617C03D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACCCD85-274B-4F62-944F-09276617C03D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACCCD85-274B-4F62-944F-09276617C03D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
