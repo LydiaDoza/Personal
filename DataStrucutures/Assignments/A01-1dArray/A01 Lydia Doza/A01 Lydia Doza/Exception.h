@@ -15,7 +15,7 @@ public:
 	Exception(const Exception & copy);
 	~Exception();
 
-	const char* GetMessage();
+	const char* GetMessage() const;
 	void SetMessage(char * msg);
 
 	Exception& operator=(const Exception & rhs);

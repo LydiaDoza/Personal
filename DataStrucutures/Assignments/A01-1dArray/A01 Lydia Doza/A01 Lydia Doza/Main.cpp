@@ -7,8 +7,8 @@
 *
 * Overview:
 *	This program is used to create and test various 1 
-*	dimension arrays of any data type, and to throw
-*	exceptions 
+*	dimensional arrays of any data type, and to throw
+*	exceptions if they exist
 ************************************************************/
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
