@@ -13,7 +13,7 @@ namespace Iterator
         public CompositeIterator(OITComponent component)
         {
             inner = component;
-           // inner.NodeDisplay();  //optional
+            //inner.NodeDisplay();  //optional
             stack.Push(inner.CreateIterator());
             current = 0;
         }

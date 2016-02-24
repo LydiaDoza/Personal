@@ -40,8 +40,7 @@ namespace InternalCompositeIteratorLibrary2016
 
         public override void Display()
         {
-            Console.WriteLine("*****************************");
-            Console.WriteLine("Company: " + _name);
+            Console.WriteLine(_name);
             AbstractIterator iter = CreateIterator();
 
             for(iter.First(); !iter.IsDone(); iter.MoveNext())

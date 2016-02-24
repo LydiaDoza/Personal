@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace InternalCompositeIteratorLibrary2016
+namespace ExternalCompositeIterator2016
 {
     public class CompanyComposite : CompanyComponent
     {
@@ -44,8 +41,15 @@ namespace InternalCompositeIteratorLibrary2016
             Console.WriteLine("Company: " + _name);
             AbstractIterator iter = CreateIterator();
 
-            for(iter.First(); !iter.IsDone(); iter.MoveNext())
+            for (iter.First(); !iter.IsDone(); iter.MoveNext())
+            {
                 iter.GetCurrent().Display();
+            }
+        }
+
+        public override void NodeDisplay()
+        {
+            Console.WriteLine("************    " + _name + "  ************");
         }
     }
 }

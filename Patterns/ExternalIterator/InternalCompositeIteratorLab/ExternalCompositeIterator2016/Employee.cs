@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace InternalCompositeIteratorLibrary2016
+namespace ExternalCompositeIterator2016
 {
     public class Employee : CompanyComponent
     {
@@ -12,9 +8,22 @@ namespace InternalCompositeIteratorLibrary2016
         private string _socialSecurityNumber;
         private double _salary;
 
-        public string Name => _name;
-        public string SocialSecurityNumber => _socialSecurityNumber;
-        public double Salary => _salary;
+        public override string GetName()
+        {
+            return _name;
+        }
+        public string Name
+        {
+            get { return _name; }
+        }
+        public string SocialSecurityNumber
+        {
+            get { return _socialSecurityNumber; }
+        }
+        public double Salary
+        {
+            get { return _salary; }
+        }
 
 
         public Employee(string name, string ssn, double salary)
@@ -24,7 +33,7 @@ namespace InternalCompositeIteratorLibrary2016
             _salary = salary;
         }
 
-       
+
         public override void Display()
         {
             Console.WriteLine();
@@ -32,6 +41,10 @@ namespace InternalCompositeIteratorLibrary2016
             Console.WriteLine("   SSN: {0}", _socialSecurityNumber);
             Console.WriteLine("   Salary: {0:C}", _salary);
             Console.WriteLine();
+        }
+        public override void NodeDisplay()
+        {
+            Console.WriteLine(_name);
         }
     }
 }

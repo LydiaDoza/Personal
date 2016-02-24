@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InternalCompositeIteratorLibrary2016
+namespace EmployeeCollection2016
 {
-    public class Employee : CompanyComponent
+    public class Employee
     {
         private string _name;
         private string _socialSecurityNumber;
@@ -24,10 +24,8 @@ namespace InternalCompositeIteratorLibrary2016
             _salary = salary;
         }
 
-       
-        public override void Display()
+        public void DisplayEmployee()
         {
-            Console.WriteLine();
             Console.WriteLine("Name: {0}", _name);
             Console.WriteLine("   SSN: {0}", _socialSecurityNumber);
             Console.WriteLine("   Salary: {0:C}", _salary);

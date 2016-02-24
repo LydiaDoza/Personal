@@ -9,13 +9,13 @@ namespace InternalCompositeIteratorLibrary2016
     public class Employee : CompanyComponent
     {
         private string _name;
-        private string _socialSecurityNumber;
-        private double _salary;
-
         public string Name => _name;
-        public string SocialSecurityNumber => _socialSecurityNumber;
-        public double Salary => _salary;
 
+        private string _socialSecurityNumber;
+        public string SocialSecurityNumber => _socialSecurityNumber;
+
+        private double _salary;
+        public double Salary => _salary;
 
         public Employee(string name, string ssn, double salary)
         {
@@ -27,7 +27,6 @@ namespace InternalCompositeIteratorLibrary2016
        
         public override void Display()
         {
-            Console.WriteLine();
             Console.WriteLine("Name: {0}", _name);
             Console.WriteLine("   SSN: {0}", _socialSecurityNumber);
             Console.WriteLine("   Salary: {0:C}", _salary);
