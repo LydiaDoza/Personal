@@ -43,9 +43,12 @@
     <Compile Include="AbstractIterator.cs" />
     <Compile Include="CompanyComponent.cs" />
     <Compile Include="CompanyComposite.cs" />
+    <Compile Include="CompanyCompositeVisitor.cs" />
     <Compile Include="CompositeIterator.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeVisitor.cs" />
     <Compile Include="InternalReturnAllIterator.cs" />
+    <Compile Include="IVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

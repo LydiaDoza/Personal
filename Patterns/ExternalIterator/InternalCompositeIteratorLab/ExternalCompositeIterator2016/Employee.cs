@@ -46,5 +46,10 @@ namespace ExternalCompositeIterator2016
         {
             Console.WriteLine(_name);
         }
+
+        public override void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

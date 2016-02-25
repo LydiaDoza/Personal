@@ -51,5 +51,16 @@ namespace ExternalCompositeIterator2016
         {
             Console.WriteLine("************    " + _name + "  ************");
         }
+
+        public override void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+
+            AbstractIterator iter = CreateIterator();
+            for (iter.First(); !iter.IsDone(); iter.MoveNext())
+            {
+                iter.GetCurrent().Accept(visitor);
+            }
+        }
     }
 }

@@ -37,6 +37,8 @@ namespace InternalCompositeIteratorLab
 
             CompositeIterator iter = new CompositeIterator(newforyou);
 
+
+            Console.WriteLine("=============== Part One ===============");
             for (iter.First(); !iter.IsDone(); iter.MoveNext()) 
             {
                 if (iter.GetCurrent() is CompanyComposite||
@@ -45,6 +47,14 @@ namespace InternalCompositeIteratorLab
                     iter.GetCurrent().NodeDisplay();
                }
             }
+            Console.WriteLine();
+            Console.WriteLine("=============== Part Two ===============");
+
+            Console.WriteLine("----------- Employee Visitor -----------");
+            IVisitor empVisitor = new EmployeeVisitor(newforyou);
+
+            Console.WriteLine("---------- Composite Visitor -----------");
+            IVisitor coVisitor = new CompanyCompositeVisitor(newforyou);
             Console.Read();
         }
     }

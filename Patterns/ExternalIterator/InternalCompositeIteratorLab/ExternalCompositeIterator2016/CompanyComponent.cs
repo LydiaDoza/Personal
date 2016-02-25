@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ExternalCompositeIterator2016
 {
@@ -42,6 +43,11 @@ namespace ExternalCompositeIterator2016
         public virtual void NodeDisplay()
         {
             throw new System.Exception();
+        }
+
+        public virtual void Accept(IVisitor visitor)
+        {
+            
         }
     }
 }
