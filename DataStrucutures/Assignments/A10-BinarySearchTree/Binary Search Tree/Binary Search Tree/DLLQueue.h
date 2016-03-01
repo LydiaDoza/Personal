@@ -56,35 +56,25 @@ private:
 
 /**************************************************************
 *	Purpose: 	Default Ctor
-*
 *	Entry:		None
-*
 *	Exit:		All data members set to zero or nullptr
 ****************************************************************/
 template <typename T>
 DLLQueue<T>::DLLQueue() : m_list(), m_items(0)
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Copy Ctor
-*
 *	Entry:		data member to be copied
-*
 *	Exit:		this is equal to copy
 ****************************************************************/
 template <typename T>
 DLLQueue<T>::DLLQueue(const DLLQueue<T> & copy) : m_list(copy.m_list), m_items(0)
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Dtor
-*
 *	Entry:		None
-*
 *	Exit:		Memory deallocated, members set back to zero
 *				or nullptr
 ****************************************************************/
@@ -97,9 +87,7 @@ DLLQueue<T>::~DLLQueue()
 
 /**************************************************************
 *	Purpose:	op equals
-*
 *	Entry:		DLLQueue rhs
-*
 *	Exit:		this is equal to rhs
 ****************************************************************/
 template <typename T>
@@ -116,9 +104,7 @@ return *this;
 
 /**********************************************************************
 * Purpose:	Adds T data to end of queue.
-*
 * Entry:	T data
-*
 * Exit:		queue grows by one, data is appended to linked list
 ************************************************************************/
 template <typename T>
@@ -130,9 +116,7 @@ void DLLQueue<T>::Enqueue(T data)
 
 /**********************************************************************
 * Purpose:	Removes and returns head of queue.
-*
 * Entry:	None.
-*
 * Exit:		Head of queue.
 ************************************************************************/
 template <typename T>
@@ -153,9 +137,7 @@ T DLLQueue<T>::Dequeue()
 
 /**********************************************************************
 * Purpose:	Allows user to see and manipulate data in front of list.
-*
 * Entry:	None.
-*
 * Exit:		Data is returned by reference so that it can be manipulated
 ************************************************************************/
 template <typename T>
@@ -166,9 +148,7 @@ Node<T>* DLLQueue<T>::Front()
 
 /**********************************************************************
 * Purpose:	See number of items in queue.
-*
 * Entry:	None.
-*
 * Exit:		Number of items in queue.
 ************************************************************************/
 template <typename T>
@@ -179,9 +159,7 @@ int DLLQueue<T>::Size()
 
 /**********************************************************************
 * Purpose:	Returns true if there are no items in queue
-*
 * Entry:	None.
-*
 * Exit:		True or false.
 ************************************************************************/
 template <typename T>

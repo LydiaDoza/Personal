@@ -3,10 +3,10 @@
 *
 * Managers:
 *	Node()
-*		m_right_subtree and m_left_subtree is set to nullptr and m_data 
+*		m_right and m_left is set to nullptr and m_data 
 *		is set to default value.
 *	Node(T data)
-*		m_right_subtree and m_left_subtree are set to nullptr and m_data 
+*		m_right and m_left are set to nullptr and m_data 
 *		is set to data
 *	~Node()
 *		m_next and m_prev are set to nullptr and m_data is automatically
@@ -47,8 +47,8 @@ public:
 	~BSTNode();
 	BSTNode<T> & operator = (const BSTNode<T>& node);
 
-	void SetLeft(const BSTNode<T> *& left);
-	void SetRight(const BSTNode<T> *& right);
+	void SetLeft(BSTNode<T> *left);
+	void SetRight(BSTNode<T> * right);
 	void SetData(T data);
 
 	BSTNode<T> * GetLeft() const;
@@ -58,8 +58,8 @@ public:
 	bool IsSame(T data);
 
 private:
-	BSTNode<T> * m_right_subtree;
-	BSTNode<T> * m_left_subtree;
+	BSTNode<T> * m_right;
+	BSTNode<T> * m_left;
 	T m_data;
 };
 
@@ -69,7 +69,7 @@ private:
 * Exit:		m_next, m_prev set to nullptr, m_data set to default value
 ************************************************************************/
 template <typename T>
-BSTNode<T>::BSTNode() : m_right_subtree(nullptr), m_left_subtree(nullptr), m_data()
+BSTNode<T>::BSTNode() : m_right(nullptr), m_left(nullptr), m_data()
 {}
 
 /**********************************************************************
@@ -78,7 +78,7 @@ BSTNode<T>::BSTNode() : m_right_subtree(nullptr), m_left_subtree(nullptr), m_dat
 * Exit:		m_next, m_prev set to nullptr, m_data set to data
 ************************************************************************/
 template <typename T>
-BSTNode<T>::BSTNode(T data) : m_right_subtree(nullptr), m_left_subtree(nullptr), m_data(data)
+BSTNode<T>::BSTNode(T data) : m_right(nullptr), m_left(nullptr), m_data(data)
 {}
 
 /**********************************************************************
@@ -87,7 +87,8 @@ BSTNode<T>::BSTNode(T data) : m_right_subtree(nullptr), m_left_subtree(nullptr),
 * Exit:		this is set to node
 ************************************************************************/
 template <typename T>
-BSTNode<T>::BSTNode(const BSTNode& copy) : m_right_subtree(copy.m_right_subtree), m_left_subtree(copy.m_left_subtree), m_data(copy.m_data)
+BSTNode<T>::BSTNode(const BSTNode& copy) :
+	m_right(copy.m_right), m_left(copy.m_left), m_data(copy.m_data)
 {}
 
 /**********************************************************************
@@ -98,7 +99,7 @@ BSTNode<T>::BSTNode(const BSTNode& copy) : m_right_subtree(copy.m_right_subtree)
 template <typename T>
 BSTNode<T>::~BSTNode()
 {
-	m_right_subtree = m_left_subtree = nullptr;
+	m_right = m_left = nullptr;
 }
 
 /**********************************************************************
@@ -112,8 +113,8 @@ BSTNode<T>& BSTNode<T>::operator=(const BSTNode<T> &rhs)
 	if (this != &rhs)
 	{
 		m_data = rhs.m_data;
-		m_right_subtree = rhs.m_right_subtree;
-		m_left_subtree = rhs.m_left_subtree;
+		m_right = rhs.m_right;
+		m_left = rhs.m_left;
 	}
 	return *this;
 }
@@ -124,9 +125,9 @@ BSTNode<T>& BSTNode<T>::operator=(const BSTNode<T> &rhs)
 * Exit:		m_prev set to prev
 ************************************************************************/
 template <typename T>
-void BSTNode<T>::SetLeft(const BSTNode<T> *& left)
+void BSTNode<T>::SetLeft(BSTNode<T> * left)
 {
-	m_left_subtree = left;
+	m_left = left;
 }
 
 /**********************************************************************
@@ -135,9 +136,9 @@ void BSTNode<T>::SetLeft(const BSTNode<T> *& left)
 * Exit:		m_next is set to next
 ************************************************************************/
 template <typename T>
-void BSTNode<T>::SetRight(const BSTNode<T> *& right)
+void BSTNode<T>::SetRight(BSTNode<T> * right)
 {
-	m_right_subtree = right;
+	m_right = right;
 }
 
 /**********************************************************************
@@ -159,7 +160,7 @@ void BSTNode<T>::SetData(T data)
 template <typename T>
 BSTNode<T> * BSTNode<T>::GetLeft() const
 {
-	return m_left_subtree;
+	return m_left;
 }
 
 /**********************************************************************
@@ -170,7 +171,7 @@ BSTNode<T> * BSTNode<T>::GetLeft() const
 template <typename T>
 BSTNode<T> * BSTNode<T>::GetRight() const
 {
-	return m_right_subtree;
+	return m_right;
 }
 
 /**********************************************************************

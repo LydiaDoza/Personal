@@ -80,7 +80,7 @@ BinarySearchTree<T>::BinarySearchTree() : m_root(nullptr)
 template <typename T>
 BinarySearchTree<T>::BinarySearchTree(const BinarySearchTree<T> & copy) :m_root(nullptr)
 {
-	*this = copy;
+	m_root = Copy(copy.m_root);
 }
 
 /**************************************************************
@@ -129,9 +129,9 @@ void BinarySearchTree<T>::Insert(const T & data)
 	{
 		prev = travel;
 		if (data < travel->m_data)
-			travel = travel->m_left_subtree;
+			travel = travel->m_left;
 		else
-			travel = travel->m_right_subtree;
+			travel = travel->m_right;
 	}
 
 	if (m_root == nullptr)
@@ -166,9 +166,9 @@ void BinarySearchTree<T>::InsertRecurs(const T & data, BSTNode<T>*&root)
 	else
 	{
 		if (data < root->m_data)
-			InsertRecurs(data, root->m_left_subtree);
+			InsertRecurs(data, root->m_left);
 		else
-			InsertRecurs(data, root->m_right_subtree);
+			InsertRecurs(data, root->m_right);
 	}
 }
 
@@ -185,32 +185,32 @@ void BinarySearchTree<T>::DeleteByCopy(BSTNode<T> *& node)
 
 	if (node == nullptr)
 		throw Exception("ERROR: not in tree");
-	else if (node->m_left_subtree == nullptr 
-		&& node->m_right_subtree == nullptr)
+	else if (node->m_left == nullptr && 
+		node->m_right == nullptr) // lef
 	{
 		delete node;
 		node = nullptr;
 	}
-	else
+	else // chitlins
 	{
-		if (node->m_left_subtree == nullptr)
-			node = node->m_right_subtree;
-		else if (node->m_right_subtree == nullptr)
-			node = node->m_left_subtree;
-		else
+		if (node->m_left == nullptr) // right child
+			node = node->m_right; 
+		else if (node->m_right == nullptr) // left child
+			node = node->m_left;
+		else // both chitlins
 		{
-			temp = node->m_left_subtree;
+			temp = node->m_left;
 			prev = node;
-			while (temp->m_right_subtree != nullptr)
+			while (temp->m_right != nullptr)
 			{
 				prev = temp;
-				temp = temp->m_right_subtree;
+				temp = temp->m_right;
 			}
 			node->m_data = temp->m_data;
 			if (prev == node)
-				prev->m_left_subtree = temp->m_left_subtree;
+				prev->m_left = temp->m_left;
 			else
-				prev->m_right_subtree = temp->m_left_subtree;
+				prev->m_right = temp->m_left;
 		}
 		delete temp;
 		temp = nullptr;
@@ -242,9 +242,9 @@ void BinarySearchTree<T>::FindNodeAndDelete(const T & data)
 			{
 				prev = travel;
 				if (data < travel->m_data)
-					travel = travel->m_left_subtree;
+					travel = travel->m_left;
 				else
-					travel = travel->m_right_subtree;
+					travel = travel->m_right;
 			}
 		}
 
@@ -257,9 +257,9 @@ void BinarySearchTree<T>::FindNodeAndDelete(const T & data)
 			if (travel == m_root)
 				DeleteByCopy(m_root);
 			else if (data < prev->m_data)
-				DeleteByCopy(prev->m_left_subtree);
+				DeleteByCopy(prev->m_left);
 			else
-				DeleteByCopy(prev->m_right_subtree);
+				DeleteByCopy(prev->m_right);
 		}
 	}
 }
@@ -285,8 +285,8 @@ void BinarySearchTree<T>::Purge(BSTNode<T>*&root)
 {
 	if (root != nullptr)
 	{
-		Purge(root->m_left_subtree);
-		Purge(root->m_right_subtree);
+		Purge(root->m_left);
+		Purge(root->m_right);
 		delete root;
 		root = nullptr;
 	}
@@ -316,11 +316,11 @@ int BinarySearchTree<T>::Height(BSTNode<T>* root)
 
 	if (root != nullptr)
 	{
-		if (root->m_left_subtree != nullptr)
-			left_height = 1 + Height(root->m_left_subtree);
+		if (root->m_left != nullptr)
+			left_height = 1 + Height(root->m_left);
 
-		if (root->m_right_subtree != nullptr)
-			right_height = 1 + Height(root->m_right_subtree);
+		if (root->m_right != nullptr)
+			right_height = 1 + Height(root->m_right);
 	}
 	return (left_height > right_height) ? left_height : right_height;
 }
@@ -347,9 +347,9 @@ void BinarySearchTree<T>::TravInOrder(void(*Visit)(BSTNode<T>*),
 {
 	if (root != nullptr)
 	{
-		TravInOrder(Visit, root->m_left_subtree);
+		TravInOrder(Visit, root->m_left);
 		Visit(root);
-		TravInOrder(Visit, root->m_right_subtree);
+		TravInOrder(Visit, root->m_right);
 	}
 }
 
@@ -376,8 +376,8 @@ void BinarySearchTree<T>::TravPreOrder(void(*Visit)(BSTNode<T>*),
 	if (root != nullptr)
 	{
 		Visit(root);
-		TravPreOrder(Visit, root->m_left_subtree);
-		TravPreOrder(Visit, root->m_right_subtree);
+		TravPreOrder(Visit, root->m_left);
+		TravPreOrder(Visit, root->m_right);
 	}
 }
 
@@ -403,8 +403,8 @@ void BinarySearchTree<T>::TravPostOrder(void(*Visit)(BSTNode<T>*),
 {
 	if (root != nullptr)
 	{
-		TravPostOrder(Visit, root->m_left_subtree);
-		TravPostOrder(Visit, root->m_right_subtree);
+		TravPostOrder(Visit, root->m_left);
+		TravPostOrder(Visit, root->m_right);
 		Visit(root);
 	}
 }
@@ -426,11 +426,11 @@ void BinarySearchTree<T>::TravBreadth(void(*Visit)(BSTNode<T>*))
 		{
 			travel = q.Dequeue();
 			Visit(travel);
-			if (travel->m_left_subtree != nullptr)
-				q.Enqueue(travel->m_left_subtree);
+			if (travel->m_left != nullptr)
+				q.Enqueue(travel->m_left);
 
-			if (travel->m_right_subtree != nullptr)
-				q.Enqueue(travel->m_right_subtree);
+			if (travel->m_right != nullptr)
+				q.Enqueue(travel->m_right);
 		}
 	}
 }
@@ -448,8 +448,8 @@ BSTNode<T>* BinarySearchTree<T>::Copy(const BSTNode<T>* root)
 	if (root != nullptr)
 	{
 		copy = new BSTNode<T>(root->m_data);
-		copy->m_left_subtree = Copy(root->m_left_subtree);
-		copy->m_right_subtree = Copy(root->m_right_subtree);
+		copy->m_left = Copy(root->m_left);
+		copy->m_right = Copy(root->m_right);
 	}
 	return copy;
 }

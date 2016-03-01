@@ -48,6 +48,8 @@ int main()
 	cout << "\n\nBreadth First:" << endl;
 	b.TravBreadth(&Visit);
 
+	b.Purge();
+
 	c.InsertRecurs(20);
 	c.InsertRecurs(12);
 	c.InsertRecurs(25);
