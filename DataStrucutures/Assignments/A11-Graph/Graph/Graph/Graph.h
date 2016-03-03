@@ -49,22 +49,16 @@ private:
 
 /**************************************************************
 *	Purpose: 	Default Ctor
-*
 *	Entry:		None
-*
 *	Exit:		All data members set to zero or nullptr
 ****************************************************************/
 template <typename V, typename E>
 Graph<V, E>::Graph() : m_vertices(), m_count(0)
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Copy Ctor
-*
 *	Entry:		data member to be copied
-*
 *	Exit:		this is equal to copy
 ****************************************************************/
 template <typename V, typename E>
@@ -75,23 +69,17 @@ Graph<V, E>::Graph(const Graph<V, E> & copy)
 
 /**************************************************************
 *	Purpose:	Dtor
-*
 *	Entry:		None
-*
 *	Exit:		Memory deallocated, members set back to zero
 *				or nullptr
 ****************************************************************/
 template <typename V, typename E>
 Graph<V, E>::~Graph()
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	op equals
-*
 *	Entry:		Graph rhs
-*
 *	Exit:		this is equal to rhs
 ****************************************************************/
 template <typename V, typename E>
@@ -107,9 +95,7 @@ Graph<V, E>& Graph<V, E>::operator=(const Graph<V, E> & rhs)
 
 /**********************************************************************
 * Purpose:	Inserts a new vertex containing V data into graph
-*
 * Entry: 	V data
-*
 * Exit:		Vertex is inserted into graph
 ************************************************************************/
 template <typename V, typename E>
@@ -128,9 +114,7 @@ void Graph<V, E>::InsertVertex(const V & data)
 
 /**********************************************************************
 * Purpose:	Deletes a vertex from graph containing V data.
-*
 * Entry: 	V data
-*
 * Exit:		Vertex containing V data is deleted from graph.
 ************************************************************************/
 template <typename V, typename E>
@@ -141,11 +125,8 @@ void Graph<V, E>::DeleteVertex(const V & data)
 
 /**********************************************************************
 * Purpose:
-*
 * Entry: 	V from, V to, E edge
-*
-* Exit:		template <typename V, typename E>
-void
+* Exit:		
 ************************************************************************/
 template <typename V, typename E>
 void Graph<V, E>::InsertArc(const V & from, const V & to, const E & edge)
@@ -155,11 +136,8 @@ void Graph<V, E>::InsertArc(const V & from, const V & to, const E & edge)
 
 /**********************************************************************
 * Purpose:
-*
 * Entry: 	V from, V to, E edge
-*
-* Exit:		template <typename V, typename E>
-void
+* Exit:		
 ************************************************************************/
 template <typename V, typename E>
 void Graph<V, E>::DeleteArc(const V & from, const V & to, const E & edge)
@@ -169,11 +147,8 @@ void Graph<V, E>::DeleteArc(const V & from, const V & to, const E & edge)
 
 /**********************************************************************
 * Purpose:
-*
 * Entry: 	void(*visit) (V data)
-*
-* Exit:		template <typename V, typename E>
-void
+* Exit:		
 ************************************************************************/
 template <typename V, typename E>
 void Graph<V, E>::DepthFirst(void(*visit) (const V & data))
@@ -183,11 +158,8 @@ void Graph<V, E>::DepthFirst(void(*visit) (const V & data))
 
 /**********************************************************************
 * Purpose:
-*
 * Entry: 	void(*visit) (V data)
-*
-* Exit:		template <typename V, typename E>
-void
+* Exit:		
 ************************************************************************/
 template <typename V, typename E>
 void Graph<V, E>::BreadthFirst(void(*visit) (const V & data))
@@ -197,9 +169,7 @@ void Graph<V, E>::BreadthFirst(void(*visit) (const V & data))
 
 /**********************************************************************
 * Purpose:
-*
 * Entry:
-*
 * Exit:		template <typename V, typename E>
 bool
 ************************************************************************/
