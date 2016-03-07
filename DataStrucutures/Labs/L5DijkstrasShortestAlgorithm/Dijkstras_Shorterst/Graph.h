@@ -56,14 +56,19 @@ public:
 
 	Graph<V, E>& operator=(const Graph<V, E> & rhs);
 
-	void InsertVertex(const V & data); // Insert a vertex that stores the data passed in.
-	void DeleteVertex(const V & data); // Deletes the vertex that matches the target data
-	void InsertEdge(const V & from, const V & to, const E & edge, int weight);
+	// Insert a vertex that stores the data passed in.
+	void InsertVertex(const V & data); 
+	// Deletes the vertex that matches the target data
+	void DeleteVertex(const V & data); 
 	// Add an arc to the graph. The arc connects the two vertices specified by the two parameters.
-	void DeleteEdge(const V & from, const V & to, const E & edge, int weight); // Disconnects the specified vertices.
+	void InsertEdge(const V & from, const V & to, const E & edge, int weight);
+	// Disconnects the specified vertices.
+	void DeleteEdge(const V & from, const V & to, const E & edge, int weight); 
+	
 	void DepthFirst(void(*visit) (const V & data));
 	void BreadthFirst(void(*visit) (const V & data));
-	bool isEmpty() const; // checks to see if graph is empty
+	
+	bool isEmpty() const; 
 	bool CityInList(const V & data) const;
 
 	list<Vertex<V, E>> GetVertices() const;
@@ -79,9 +84,7 @@ private:
 ****************************************************************/
 template <typename V, typename E>
 Graph<V, E>::Graph() : m_vertices()
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Copy Ctor
@@ -90,9 +93,7 @@ Graph<V, E>::Graph() : m_vertices()
 ****************************************************************/
 template <typename V, typename E>
 Graph<V, E>::Graph(const Graph<V, E> & copy)
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Dtor
@@ -102,8 +103,7 @@ Graph<V, E>::Graph(const Graph<V, E> & copy)
 ****************************************************************/
 template <typename V, typename E>
 Graph<V, E>::~Graph()
-{
-}
+{}
 
 /**************************************************************
 *	Purpose:	op equals
@@ -183,7 +183,6 @@ void Graph<V, E>::InsertEdge(const V & from, const V & to, const E & edge, int w
 	// temp iterators
 	list<Vertex<V, E>>::iterator itF = m_vertices.begin(), itT = m_vertices.begin();
 
-
 	// go through list while "from" isn't found and "to" isn't found
 	for (list<Vertex<V, E>>::iterator it = m_vertices.begin();
 		it != m_vertices.end() && !(findFrom && findTo);
@@ -223,7 +222,6 @@ void Graph<V, E>::InsertEdge(const V & from, const V & to, const E & edge, int w
 		itF->m_edges.emplace_back(&(*itF), &(*itT), weight, edge); //
 		itT->m_edges.emplace_back(&(*itT), &(*itF), weight, edge);
 	}
-
 }
 
 /**********************************************************************

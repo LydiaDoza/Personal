@@ -57,9 +57,7 @@ private:
 ****************************************************************/
 template <typename V, typename E>
 Vertex<V, E>::Vertex() : m_edges(), m_data(), m_processed(false)
-{
-
-}
+{}
 
 /**********************************************************************
 * Purpose:	1 arg ctor: Create a vertex with data
@@ -68,9 +66,7 @@ Vertex<V, E>::Vertex() : m_edges(), m_data(), m_processed(false)
 ************************************************************************/
 template <typename V, typename E>
 Vertex<V, E>::Vertex(const V & data) : m_data(data), m_edges(), m_processed(false)
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Copy Ctor

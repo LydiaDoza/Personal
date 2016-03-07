@@ -58,9 +58,7 @@ private:
 ****************************************************************/
 template <typename V, typename E>
 Edge<V, E>::Edge() : m_destination(nullptr), m_origin(nullptr), m_weight(0), m_data()
-{
-
-}
+{}
 
 /**********************************************************************
 * Purpose:	Create an edge specifying values
@@ -70,9 +68,7 @@ Edge<V, E>::Edge() : m_destination(nullptr), m_origin(nullptr), m_weight(0), m_d
 template <typename V, typename E>
 Edge<V, E>::Edge(Vertex<V, E>* dest, int weight, E data) :
 m_data(data), m_destination(dest), m_origin(nullptr), m_weight(weight)
-{
-
-}
+{}
 
 /**********************************************************************
 * Purpose:	4 arg ctor
@@ -82,9 +78,7 @@ m_data(data), m_destination(dest), m_origin(nullptr), m_weight(weight)
 template <typename V, typename E>
 Edge<V, E>::Edge(Vertex<V, E>*orig, Vertex<V, E> * dest, int weight, E data) :
 m_origin(orig), m_destination(dest), m_weight(weight), m_data(data)
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	Copy Ctor
@@ -106,9 +100,7 @@ m_destination(nullptr), m_origin(nullptr), m_weight(0), m_data()
 ****************************************************************/
 template <typename V, typename E>
 Edge<V, E>::~Edge()
-{
-
-}
+{}
 
 /**************************************************************
 *	Purpose:	op equals

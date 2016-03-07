@@ -98,9 +98,12 @@ int main()
 bool ReadFile(const string & file, Graph<string, string> & graph)
 {
 	ifstream map(file.c_str());
-	bool valid = true;
+	bool valid = false;
 
 	if (map.is_open())
+	{
+		valid = true;
+
 		while (!map.eof())
 		{
 			string orig, dest, hwy;
@@ -131,10 +134,9 @@ bool ReadFile(const string & file, Graph<string, string> & graph)
 			}
 
 			graph.InsertEdge(orig, dest, hwy, weight);
-
 		}
-	else
-		valid = false;
+		map.close();
+	}
 
 	return valid;
 }
@@ -243,8 +245,6 @@ void PrimeCities(vector<City> & cities, int & iStart, int & iEnd)
 	}
 }
 
-
-
 /**********************************************************************
 * Purpose:	implements Dijkstra's shortest path algorithm
 * Entry: 	const Graph<string, string> & graph, string begin, string finish
@@ -254,9 +254,7 @@ list<City> Dijkstra(const Graph<string, string> & g, string orig, string dest)
 {
 	list<City> shortest_path;	// used for return
 	vector<City> cities;		// cities vector (vector because [] access)
-
 	int iStart(-1), iEnd(-1), size(0);
-
 	bool fStart = false, fEnd = false, done = false;
 
 	for (Vertex<string, string> & v : g.GetVertices())
@@ -306,6 +304,7 @@ list<City> Dijkstra(const Graph<string, string> & g, string orig, string dest)
 
 	return shortest_path;
 }
+
 /**********************************************************************
 * Purpose:	Displays distance from beginning to end cities and time it
 *			takes to drive going the speed limit.
