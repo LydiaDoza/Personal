@@ -41,22 +41,22 @@ namespace Doza
             //comment out that test and move to the next test.
 
             //Test #1: Invalid state for debit should throw an exception
-            // bankaccount.Debit(1000);
+            bankaccount.Debit(1000);
 
             bankaccount.Unfreeze();
 
             //Test #2: Account closes properly with zero balance
-            //bankaccount.Debit(1000);
+            bankaccount.Debit(1000);
 
             // Test #3 : Overdraws account account can't be closed
-            bankaccount.Debit(2500);
+            //bankaccount.Debit(2500);
 
             //Initial run, balance not zero, cuts a check and closes account
             bankaccount.Close();
 
             //Test #4 : Leave Test #3 uncommented. Credits 1500 and can now close the account
-            bankaccount.Credit(1500);
-            bankaccount.Close();
+            //bankaccount.Credit(1500);
+            //bankaccount.Close();
         }
 
         static void Main(string[] args)

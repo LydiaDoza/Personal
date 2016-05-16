@@ -135,10 +135,9 @@ void HashTable<K, V>::Insert(K key, V value)
 	index = m_hash(key) % size;
 
 	for (pair<K, V> p : m_table[index])
-	{
 		if (p.first == key)
 			throw Exception("ERROR: Data already exists.");
-	}
+	
 	m_table[index].emplace_back(key, value);
 }
 
