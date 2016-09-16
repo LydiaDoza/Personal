@@ -1,0 +1,19 @@
+﻿<Window x:Class="FinalProject.StartThreadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        mc:Ignorable="d"
+        Title="Thread Window" 
+        Loaded="Window_Loaded" Height="300" Width="300">
+    <StackPanel Name="Panel" Height ="265">
+        <StackPanel Name="StackText" Orientation="Horizontal" Height="20">
+            <TextBlock Text="Thread ID: "/>
+            <TextBlock Text="{Binding ThreadId}"/>
+        </StackPanel>
+        <TextBlock Name="Info" Text="Window will close after pic reaches bottom of window." Height="16"/>
+        <TextBlock Name="Desc" Text="Rainbow made of Thread!" Height="16"></TextBlock>
+        <Image Name="Rainbow" Source="http://i.imgur.com/Qu5ia2k.jpg" Height="165" Width="250"/>
+    </StackPanel>
+</Window>
