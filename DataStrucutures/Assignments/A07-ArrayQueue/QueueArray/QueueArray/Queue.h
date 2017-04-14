@@ -45,7 +45,6 @@ public:
 	T Dequeue();
 	T& Front();
 	int Size();
-	
 
 private:
 	Array<T> m_array;
