@@ -32,21 +32,16 @@ private:
 };
 /**********************************************************************
 * Purpose:	Default constructor
-*
 * Entry:	None
-*
 * Exit:		All members set to zero or nullptr
 ************************************************************************/
 template <typename T>
 Array<T>::Array() : m_array(nullptr), m_length(0), m_start_index(0)
-{
-}
+{}
 
 /**********************************************************************
 * Purpose:	2/1 argument constructor
-*
 * Entry:	int length and int start index
-*
 * Exit:		sets m_length to length and m_start_index to start_index,
 *			if one argument is passed: m_length to length and
 *			m_start_index to zero.
@@ -56,16 +51,10 @@ Array<T>::Array(int length, int start_index /*= 0*/) :
 m_array(nullptr), m_length(0), m_start_index(0)
 {
 	if (length < 0)
-	{
 		throw Exception("\nCannot have a negative length\n");
-	}
 	else if (length == 0)
-	{
-		//m_length = length;
-		//m_array = nullptr;
 		m_start_index = start_index;
-	}
-	else // length is positive
+	else
 	{
 		m_length = length;
 		m_start_index = start_index;
@@ -75,17 +64,15 @@ m_array(nullptr), m_length(0), m_start_index(0)
 
 /**********************************************************************
 * Purpose:	Copy Ctor
-*
 * Entry:	const Array & copy
-*
 * Exit:		this is equal to copy
 ************************************************************************/
 template <typename T>
 Array<T>::Array(const Array<T> & copy) :
 m_array(nullptr), m_length(copy.m_length), m_start_index(copy.m_start_index)
 {
-	m_array = new T[copy.m_length](); // the () allows the default values
-										//to be stored
+	m_array = new T[copy.m_length](); 
+	// the () allows the default values to be stored
 
 	for (int i = 0; i < m_length; i++)
 	{
@@ -95,9 +82,7 @@ m_array(nullptr), m_length(copy.m_length), m_start_index(copy.m_start_index)
 
 /**********************************************************************
 * Purpose:	Dtor
-*
 * Entry:	None.
-*
 * Exit:		Data members set to zero or nullptr
 ************************************************************************/
 template <typename T>
@@ -112,9 +97,7 @@ Array<T>::~Array()
 
 /**********************************************************************
 * Purpose:	op equals does stuff
-*
 * Entry:	const ARray & rhs
-*
 * Exit:		this is equal to rhs.
 ************************************************************************/
 template <typename T>
@@ -139,76 +122,55 @@ Array<T>& Array<T>::operator=(const Array<T> & rhs)
 
 		m_start_index = rhs.m_start_index;
 	}
-
 	return *this;
 }
 
 /**********************************************************************
 * Purpose:	overloads the [] operator.
-*
 * Entry:	int index for the array
-*
 * Exit:		returns data member in array at the index
 ************************************************************************/
 template <typename T>
 T& Array<T>::operator[](int index)
 {
-	// index is out of bounds (over array length
-	//if ((index - m_start_index) >= m_length || (index - m_start_index) < 0)
-	//{
-		if ((index - m_start_index) >= m_length)
-			throw Exception("Access denied. Index is larger than array is.");
-		else if ((index - m_start_index) < 0)
-			throw Exception("Access denied. Index is below start index.");
-	//}
+	if ((index - m_start_index) >= m_length)
+		throw Exception("Access denied. Index is larger than array is.");
+	else if ((index - m_start_index) < 0)
+		throw Exception("Access denied. Index is below start index.");
 
 	return m_array[index - m_start_index];
 }
 
 /**********************************************************************
 * Purpose:	returns start index
-*
 * Entry:	None.
-*
 * Exit:		start index is returned
 ************************************************************************/
 template <typename T>
 int Array<T>::GetStartIndex()
-{
-	return m_start_index;
-}
+{ return m_start_index; }
 
 /**********************************************************************
 * Purpose:	Sets start index
-*
 * Entry:	int for start index
-*
 * Exit:		m_start_index is set to start_index
 ************************************************************************/
 template <typename T>
 void Array<T>::SetStartIndex(int start_index)
-{
-	m_start_index = start_index;
-}
+{ m_start_index = start_index; }
 
 /**********************************************************************
 * Purpose:	Returns m_length
-*
 * Entry:	None.
-*
 * Exit:		m_length is returned
 ************************************************************************/
 template <typename T>
 int Array<T>::GetLength()
-{
-	return m_length;
-}
+{ return m_length; }
 
 /**********************************************************************
 * Purpose:	sets m_length
-*
 * Entry:	int for length of array
-*
 * Exit:		m_length is set to length
 ************************************************************************/
 template <typename T>
@@ -233,9 +195,7 @@ void Array<T>::SetLength(int length)
 		//*****************************
 		// instead of this
 		for (int i = 0; i < m_length; i++)
-		{
 			m_array[i] = temp[i];
-		}
 
 		delete[] temp;
 		// can do this
@@ -248,7 +208,7 @@ void Array<T>::SetLength(int length)
 		delete[] m_array;
 		m_array = nullptr;
 	}
-	else // 
+	else
 		throw Exception("Cannot have a negative length");
 }
 #endif
