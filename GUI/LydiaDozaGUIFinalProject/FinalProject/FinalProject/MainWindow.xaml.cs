@@ -1,6 +1,8 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Text;
 using System.Threading;
 using System.Windows;
 
@@ -11,6 +13,8 @@ namespace FinalProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string _pi;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,13 +28,13 @@ namespace FinalProject
         {
             var conString = ConfigurationManager.ConnectionStrings["guiConnectionString"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(conString))
+            using (var con = new SqlConnection(conString))
             {
                 var cmd = new SqlCommand("[lydia_doza].[GetGuiSentences]", con);
                 var adapter = new SqlDataAdapter(cmd);
                 var dataTable = new DataTable("Sentences From Database");
                 adapter.Fill(dataTable);
-                dataGrid.ItemsSource = dataTable.DefaultView;
+                DataGrid.ItemsSource = dataTable.DefaultView;
             }
 
         }
@@ -40,10 +44,8 @@ namespace FinalProject
         /// </summary>
         private void OnCreateNewWindow(object sender, RoutedEventArgs e)
         {
-
             var thread = new Thread(() =>
             {
-
                 var tempWindow = new StartThreadWindow();
                 tempWindow.Show();
 
@@ -55,7 +57,18 @@ namespace FinalProject
             });
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
 
+        private void CalculatePi(int digitsToCalcTo)
+        {
+            var pi = new StringBuilder("3", digitsToCalcTo + 2);
+
+           
+        }
+
+        private void ShowProgress(string pi, int totalDigits, int digitsSoFar)
+        {
+            Debug.Assert(digitsSoFar)
         }
     }
 }

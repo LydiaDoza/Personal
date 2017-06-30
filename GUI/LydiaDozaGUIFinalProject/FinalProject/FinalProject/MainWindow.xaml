@@ -10,7 +10,7 @@
         Width="570.609"
         >
     <Grid>
-        <DataGrid x:Name="dataGrid" 
+        <DataGrid x:Name="DataGrid" 
                   ItemsSource="{Binding}"
                   HorizontalAlignment="Left" 
                   Margin="28,43,0,0" 
@@ -18,18 +18,23 @@
                   Height="84" Width="328"/>
         <Button x:Name="CreateThreadButton"
                 Click="OnCreateNewWindow"
-                Content="Create a thread!" 
+                Content="Calculate Pi!" 
                 HorizontalAlignment="Left" 
-                Margin="409,55,0,0" 
+                Margin="409,91,0,0" 
                 VerticalAlignment="Top" 
                 Width="127" Height="63"/>
-        <TextBlock x:Name="textBlock" 
+        <TextBlock x:Name="TextDataFromDb" 
                    HorizontalAlignment="Left"
                    Margin="68,10,0,0" 
                    TextWrapping="Wrap" 
                    Text="Data from a database!" 
                    VerticalAlignment="Top" Width="249"/>
-
-
+        <TextBox x:Name="DigitsOfPi" 
+                 HorizontalAlignment="Left" 
+                 Height="49" Margin="409,26,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="Digits of Pi to Calc" 
+                 VerticalAlignment="Top" 
+                 Width="127"/>
     </Grid>
 </Window>
